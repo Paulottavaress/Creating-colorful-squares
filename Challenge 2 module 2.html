@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Exercício 1 módulo 2 2</title>
+</head>
+
+<body>
+    <div id="app">
+        <button class="botao">Click me</button>
+    </div>
+    <script>
+        // var buttonElement = document.querySelector('button.botao');
+        var buttonElement = document.querySelector('button.botao');
+        buttonElement.onclick = function () { createElement() };
+
+        function createElement() {
+            var boxElement = document.createElement('div');
+            document.body.appendChild(boxElement);
+            boxElement.style.margin = "20 20";
+            boxElement.style.width = 100;
+            boxElement.style.height = 100;
+            boxElement.style.backgroundColor = '#F00';
+            boxElement.id = "test";
+            hoverBehavior();
+        }
+
+        function hoverBehavior() {
+            var test = document.querySelectorAll("#test");     
+            test.forEach(function (Box) {
+                Box.addEventListener("mouseover", function () {
+                    Box.style.backgroundColor = getRandomColor();
+                })
+            })
+        }
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+
+</html>
